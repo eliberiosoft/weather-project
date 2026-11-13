@@ -3,6 +3,9 @@ import { normalizar } from "./formato";
 import { I18N } from "./i18n";
 import type { Territorio } from "./tipos";
 
+/** Lo que trae escrito el buscador al abrir: la cabecera cantonal (nombre propio, igual en es y en en). */
+export const LUGAR_INICIAL = "San Jacinto de Yaguachi";
+
 export type LugarBuscado =
   | { tipo: "recinto"; id: number; texto: string; lat: number; lon: number; calle?: undefined }
   | { tipo: "punto"; lat: number; lon: number; nombre: string; texto: string; calle: true };

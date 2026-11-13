@@ -5,7 +5,7 @@
 import { useId, useRef, useState, type ReactNode } from "react";
 import { Icono } from "../../shared/componentes/Icono";
 import { useI18n } from "../../shared/i18n";
-import { buscarLugar, sugerirLugares, type LugarBuscado } from "../../shared/lugares";
+import { buscarLugar, LUGAR_INICIAL, sugerirLugares, type LugarBuscado } from "../../shared/lugares";
 import { useLugares } from "./lugares";
 
 interface Props {
@@ -27,7 +27,8 @@ export function BuscadorLugar({ id, etiqueta, placeholder, className, alElegir, 
   const lugares = useLugares();
   const lista = useId();
   const entrada = useRef<HTMLInputElement>(null);
-  const [texto, setTexto] = useState("");
+  // Arranca con la cabecera cantonal escrita: al tocar la caja queda seleccionada, así se elige de la lista o se escribe encima.
+  const [texto, setTexto] = useState(LUGAR_INICIAL);
   const [abierto, setAbierto] = useState(false);
   const [activo, setActivo] = useState(-1);
   const sugerencias = abierto ? sugerirLugares(lugares, texto) : [];
@@ -65,7 +66,10 @@ export function BuscadorLugar({ id, etiqueta, placeholder, className, alElegir, 
         role="combobox" aria-expanded={verLista} aria-controls={lista} aria-autocomplete="list"
         aria-activedescendant={activo >= 0 ? `${lista}-${activo}` : undefined}
         onChange={(e) => { setTexto(e.target.value); setAbierto(true); setActivo(-1); }}
-        onFocus={() => setAbierto(true)}
+        onFocus={(e) => {
+          setAbierto(true);
+          if (e.currentTarget.value === LUGAR_INICIAL) { const c = e.currentTarget; setTimeout(() => c.select(), 0); }
+        }}
         onBlur={() => setTimeout(() => setAbierto(false), 150)}
         onKeyDown={teclas}
         className="h-full min-w-0 flex-1 bg-transparent font-medium text-texto outline-none [&::-webkit-search-cancel-button]:hidden" />
