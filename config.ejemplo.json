@@ -1,0 +1,14 @@
+{
+  "puerto": 8080,
+  "pin_panel": null,
+  "cache_lluvia_min": 60,
+  "cache_glofas_min": 360,
+  "max_reportes_hora_dispositivo": 6,
+  "max_foto_kb": 1500,
+  "dias_conservar_fotos": 90,
+  "avisos_max_24h_por_ambito": 3,
+  "horas_silencio": [22, 6],
+  "lluvia_vigilancia_24h_mm": 50,
+  "lluvia_preparacion_24h_mm": 100,
+  "lluvia_preparacion_72h_mm": 150
+}

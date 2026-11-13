@@ -1,0 +1,20 @@
+# configuración local (lleva el PIN del panel)
+config.json
+# base de datos, caché y fotos de reportes
+/datos/
+__pycache__/
+*.pyc
+
+# CLI de Tailwind (lo descarga estilos.sh)
+herramientas/
+# mocks y capturas del proceso de diseño
+.impeccable/mocks/
+.impeccable/review/
+
+# variables y secretos locales
+.env
+secretos/*
+!secretos/LEEME.md
+# dependencias y builds de los frontends (React + Vite)
+node_modules/
+dist/

@@ -1,0 +1,16 @@
+{
+"type": "FeatureCollection",
+"name": "puntos_control",
+"xy_coordinate_resolution": 1e-06,
+"features": [
+{"type":"Feature","properties":{"id":"P01","rio":"Río Yaguachi","sitio":"Cabecera cantonal San Jacinto de Yaguachi","lat_celda":-2.125,"lon_celda":-79.725,"p90":1658.59,"t2":2273.857,"t5":2670.399,"en_canton":1},"geometry":{"type":"Point","coordinates":[-79.698705,-2.094395]}},
+{"type":"Feature","properties":{"id":"P02","rio":"Río Yaguachi","sitio":"Desembocadura en el Babahoyo (límite norte, Samborondón)","lat_celda":-2.075,"lon_celda":-79.775,"p90":1670.09,"t2":2284.923,"t5":2684.355,"en_canton":1},"geometry":{"type":"Point","coordinates":[-79.741137,-2.030408]}},
+{"type":"Feature","properties":{"id":"P03","rio":"Río Babahoyo","sitio":"Límite norte con Samborondón, aguas arriba de la confluencia","lat_celda":-1.975,"lon_celda":-79.775,"p90":3654.95,"t2":5402.108,"t5":7304.361,"en_canton":0},"geometry":{"type":"Point","coordinates":[-79.738341,-2.004977]}},
+{"type":"Feature","properties":{"id":"P04","rio":"Río Babahoyo","sitio":"Límite oeste con Samborondón/Durán, aguas abajo de la confluencia","lat_celda":-2.075,"lon_celda":-79.825,"p90":5283.45,"t2":7382.529,"t5":9565.129,"en_canton":0},"geometry":{"type":"Point","coordinates":[-79.80565,-2.062487]}},
+{"type":"Feature","properties":{"id":"P05","rio":"Río Chimbo","sitio":"Yaguachi Viejo - Vuelta Larga","lat_celda":-2.175,"lon_celda":-79.675,"p90":1609.65,"t2":2197.145,"t5":2585.19,"en_canton":1},"geometry":{"type":"Point","coordinates":[-79.648224,-2.165936]}},
+{"type":"Feature","properties":{"id":"P06","rio":"Río Chimbo","sitio":"Entrada al cantón (límite este, sector Payo)","lat_celda":-2.225,"lon_celda":-79.575,"p90":1594.88,"t2":2179.709,"t5":2564.758,"en_canton":1},"geometry":{"type":"Point","coordinates":[-79.550371,-2.234277]}},
+{"type":"Feature","properties":{"id":"P07","rio":"Río Milagro","sitio":"Cóndor (Km 25), entrada al cantón","lat_celda":-2.125,"lon_celda":-79.675,"p90":47.64,"t2":91.537,"t5":116.426,"en_canton":1},"geometry":{"type":"Point","coordinates":[-79.66803,-2.135781]}},
+{"type":"Feature","properties":{"id":"P08","rio":"Río Bulubulu","sitio":"Boliche (Gral. Pedro J. Montero) - Virgen de Fátima","lat_celda":-2.275,"lon_celda":-79.625,"p90":197.15,"t2":336.59,"t5":435.4,"en_canton":1},"geometry":{"type":"Point","coordinates":[-79.627404,-2.257285]}},
+{"type":"Feature","properties":{"id":"P09","rio":"Río Boliche","sitio":"Límite sur (sector Culebras)","lat_celda":-2.275,"lon_celda":-79.725,"p90":205.06,"t2":348.55,"t5":451.328,"en_canton":1},"geometry":{"type":"Point","coordinates":[-79.717091,-2.295624]}}
+]
+}

@@ -1,0 +1,2 @@
+/* Hoja de Leaflet en su propia capa (se carga solo con el mapa de incidentes). */
+@import "leaflet/dist/leaflet.css" layer(leaflet);

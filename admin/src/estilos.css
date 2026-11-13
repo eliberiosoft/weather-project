@@ -1,0 +1,120 @@
+/* Yaguachi Weather · estilos del panel (Tailwind v4 con @tailwindcss/vite).
+   Los tokens @theme son los mismos del panel anterior (admin/estilos/fuente.css), copiados tal cual.
+   Mundo «app móvil bento» con la gama de un cielo despejado; en el panel, fichas de papel sólido (modo Operate).
+   El color del semáforo (n1–n4) solo se usa donde se afirma un nivel. */
+
+/* orden de capas: la hoja de Leaflet queda por debajo de los componentes y utilidades de Tailwind */
+@layer theme, base, leaflet, components, utilities;
+@import "tailwindcss" source(none);
+@source "../index.html";
+@source "./";
+
+@theme {
+  /* solo esta paleta: nada de grises ni azules por defecto */
+  --color-*: initial;
+  --color-white: #fff;
+  --color-black: #000;
+  /* cielo: el fondo es un degradado de cielo despejado (ver body) */
+  --color-cielo-1: #bfe3f6;
+  --color-cielo-2: #dcf0fa;
+  --color-cielo-3: #f0f8fc;
+  --color-cielo: #3bb3e8;       /* acento: curva de lluvia, gotas */
+  --color-nube: #d6ecf8;        /* sombra de las nubes */
+  --color-sol: #f6b13b;
+  --color-sol-claro: #ffd66b;
+  --color-suelo: #eaf5fb;       /* campos y fondos de controles */
+  --color-papel: #ffffff;       /* hojas, campos y fichas sólidas */
+  --color-vidrio: rgb(255 255 255 / .74);   /* fichas sobre el cielo */
+  --color-texto: #163a52;       /* azul petróleo profundo: 11:1 sobre blanco */
+  --color-gris: #4b6478;        /* texto secundario: 6:1 sobre blanco */
+  --color-regla: #d5e5ee;       /* separadores de 1 px */
+  --color-tinta: #1d5f84;       /* acciones y marca */
+  --color-tinta-2: #174d6c;     /* acción presionada */
+  --color-tinta-suave: #dcf0fa; /* botones secundarios y chips */
+  --color-negro: #102a3c;
+  --color-n0: #d9dde5;          /* sin dato */
+  --color-n1: #1a9641;          /* NORMAL */
+  --color-n2: #ffd92f;          /* VIGILANCIA */
+  --color-n3: #fd8d3c;          /* PREPARACIÓN */
+  --color-n4: #d7191c;          /* RESPUESTA */
+  /* tintes del mismo tono, solo para el degradado de la ficha del nivel */
+  --color-n0-claro: #f1f4f8;
+  --color-n1-claro: #a6dbb5;
+  --color-n1-medio: #5cb877;   /* final del degradado de NORMAL: el texto pequeño sigue en ≥ 4,5:1 */
+  --color-n2-claro: #fff3b0;
+  --color-n3-claro: #ffd2ad;
+  --color-a1: #6baed6;          /* agua al tobillo */
+  --color-a2: #2171b5;          /* agua a la rodilla */
+  --color-a3: #08306b;          /* no se puede pasar */
+  --color-escenario: #7a0177;   /* escenarios de planificación */
+
+  /* la letra del sistema: San Francisco en iPhone, Roboto en Android; no se descarga nada */
+  --font-sans: system-ui, -apple-system, "SF Pro Text", Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  --radius-ficha: 1.6rem;
+  --shadow-ficha: 0 1px 2px rgb(22 58 82 / .06), 0 14px 30px -16px rgb(22 58 82 / .32);
+  --shadow-flota: 0 2px 6px rgb(22 58 82 / .10), 0 16px 34px -12px rgb(22 58 82 / .34);
+  --shadow-hoja: 0 -12px 34px -8px rgb(22 58 82 / .28);
+
+  --ease-sale: cubic-bezier(.16, 1, .3, 1);
+  --animate-entra: entra .32s var(--ease-sale);
+  --animate-hoja: hoja .34s var(--ease-sale);
+  --animate-sube: sube .25s var(--ease-sale);
+  @keyframes entra { from { opacity: 0; transform: translateY(10px) scale(.985); } }
+  @keyframes hoja { from { transform: translateY(100%); } }
+  @keyframes sube { from { opacity: 0; transform: translate(-50%, 10px); } }
+  /* la escena de la ficha del nivel: el agua sube con el nivel, la nube flota y llueve según el pronóstico */
+  --animate-ola: ola 9s linear infinite;
+  --animate-ola-lenta: ola 15s linear infinite reverse;
+  --animate-flota: flota 6s ease-in-out infinite;
+  --animate-gota: gota 1.2s cubic-bezier(.45, 0, 1, 1) infinite;
+  --animate-dibujar: dibujar 1.4s var(--ease-sale) both;
+  @keyframes ola { to { transform: translateX(-50%); } }
+  @keyframes flota { 50% { transform: translateY(-5px); } }
+  @keyframes gota { 0% { transform: translateY(-6px); opacity: 0; } 25% { opacity: 1; } 100% { transform: translateY(18px); opacity: 0; } }
+  @keyframes dibujar { from { stroke-dashoffset: 1; } }
+  /* el asistente de reporte: cada paso entra desde el lado hacia el que se avanza */
+  --animate-paso: paso .34s var(--ease-sale);
+  --animate-paso-atras: paso-atras .34s var(--ease-sale);
+  @keyframes paso { from { opacity: 0; transform: translateX(28px); } }
+  @keyframes paso-atras { from { opacity: 0; transform: translateX(-28px); } }
+  /* carga (spec 015): la barra global indeterminada y el brillo de los placeholders; con reduce motion quedan quietos */
+  --animate-carga: carga 1.4s cubic-bezier(.45, 0, .25, 1) infinite;
+  --animate-brillo: brillo 1.6s linear infinite;
+  @keyframes carga { from { transform: translateX(-100%); } to { transform: translateX(300%); } }
+  @keyframes brillo { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+}
+
+/* el panel abierto como app instalada (muestra el splash de index.html antes de que cargue React) */
+@custom-variant standalone (@media (display-mode: standalone));
+
+/* trazo de los íconos SVG */
+@utility ico {
+  width: 1.5rem; height: 1.5rem; flex: none;
+  fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+  body { background: linear-gradient(180deg, var(--color-cielo-1) 0%, var(--color-cielo-2) 42%, var(--color-cielo-3) 100%) fixed; color: var(--color-texto); font-family: var(--font-sans); line-height: 1.45; caret-color: var(--color-tinta); }
+  ::selection { background: var(--color-tinta); color: #fff; }
+  :focus-visible { outline: 3px solid var(--color-tinta); outline-offset: 2px; }
+  * { scrollbar-width: thin; scrollbar-color: var(--color-gris) transparent; }
+  [hidden] { display: none !important; }
+  a { color: var(--color-tinta); text-underline-offset: 3px; }
+  input::placeholder, textarea::placeholder { color: var(--color-gris); opacity: 1; }
+  input[type="checkbox"], input[type="radio"] { accent-color: var(--color-tinta); }
+  code { font-size: .9em; background: var(--color-tinta-suave); padding: .05em .35em; border-radius: .5rem; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+}
+
+/* Leaflet dibuja sus propios elementos: aquí se visten igual que la app.
+   Su hoja va en la capa «leaflet» (ver features/incidentes/mapa.css), por debajo de components y utilities. */
+@layer components {
+  .leaflet-container { font-family: var(--font-sans); font-size: 1rem; background: var(--color-cielo-2); }
+  .leaflet-container a { color: var(--color-tinta); }
+  .leaflet-control-attribution { background: rgb(255 255 255 / .85); font-size: .75rem; border-radius: .75rem 0 0 0; }
+  .mapa-elegir.leaflet-grab, .mapa-elegir .leaflet-interactive { cursor: crosshair; }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es-EC" class="h-full" data-i18n-titulo="app.titulo" data-i18n-desc="app.desc">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#dcf0fa">
+<meta name="color-scheme" content="light">
+<meta name="description" content="">
+<title></title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icono.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/icono-apple-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-startup-image" href="/inicio-ios-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="/inicio-ios-828x1792.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="/inicio-ios-1170x2532.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+</head>
+<body class="h-full select-none [-webkit-touch-callout:none] print:hidden [&_input]:select-text [&_textarea]:select-text">
+<div id="splash" aria-hidden="true" class="fixed inset-0 z-[3000] hidden animate-splash-fuera place-items-center overflow-hidden bg-cielo-2 instalada:grid [.ver-splash_&]:grid">
+  <img src="icono.svg" alt="" width="112" height="112" class="size-28 rounded-[1.75rem]">
+  <div class="absolute inset-x-6 top-[calc(50%+4.5rem)] text-center">
+    <p data-i18n="app.marca" class="animate-entra text-2xl font-bold tracking-tight text-texto [animation-delay:.1s] [animation-fill-mode:both]">Yaguachi Weather</p>
+    <p data-i18n="app.splash.lema" class="mt-1 min-h-5 animate-entra text-sm text-gris [animation-delay:.2s] [animation-fill-mode:both]"></p>
+  </div>
+  <svg viewBox="0 0 96 40" class="absolute bottom-[calc(16%+.75rem)] left-1/2 h-10 w-24 -translate-x-1/2" aria-hidden="true">
+    <g stroke-width="4" stroke-linecap="round" class="stroke-cielo">
+      <line x1="30" y1="6" x2="27" y2="16" class="animate-gota"/>
+      <line x1="50" y1="6" x2="47" y2="16" class="animate-gota [animation-delay:.4s]"/>
+      <line x1="70" y1="6" x2="67" y2="16" class="animate-gota [animation-delay:.8s]"/>
+    </g>
+  </svg>
+  <div class="absolute inset-x-0 bottom-0 h-[16%] animate-marea">
+    <svg viewBox="0 0 800 100" preserveAspectRatio="none" class="absolute bottom-0 left-0 h-full w-[200%] animate-ola-lenta fill-cielo/25" aria-hidden="true"><path d="M0 18 Q50 0 100 18 T200 18 T300 18 T400 18 T500 18 T600 18 T700 18 T800 18 V100 H0Z"/></svg>
+    <svg viewBox="0 0 800 100" preserveAspectRatio="none" class="absolute bottom-0 left-0 h-[78%] w-[200%] animate-ola fill-cielo/40" aria-hidden="true"><path d="M0 18 Q50 0 100 18 T200 18 T300 18 T400 18 T500 18 T600 18 T700 18 T800 18 V100 H0Z"/></svg>
+  </div>
+</div>
+<div id="raiz" class="flex h-full flex-col"></div>
+<script type="module" src="/src/main.tsx"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+# Revisa dependencias cada semana y abre los PR contra «desarrollo» (nunca directo a main).
+version: 2
+updates:
+  - package-ecosystem: npm
+    directories: ["/cliente", "/admin"]
+    target-branch: desarrollo
+    schedule: { interval: weekly, day: monday }
+    open-pull-requests-limit: 5
+    groups:
+      menores: { update-types: [minor, patch] }
+    ignore:
+      # probados y descartados: TypeScript 7 rompe typescript-eslint; leaflet.heat 1.0 cambia la API;
+      # @types/node sigue la versión de Node que corre (22)
+      - { dependency-name: typescript, update-types: ["version-update:semver-major"] }
+      - { dependency-name: leaflet.heat, update-types: ["version-update:semver-major"] }
+      - { dependency-name: "@types/node", update-types: ["version-update:semver-major"] }
+  - package-ecosystem: pip
+    directory: /api
+    target-branch: desarrollo
+    schedule: { interval: weekly, day: monday }
+    open-pull-requests-limit: 5
+  - package-ecosystem: docker
+    directories: ["/api", "/cliente", "/admin"]
+    target-branch: desarrollo
+    schedule: { interval: weekly, day: monday }
+    ignore:
+      # el build se queda en Node LTS (las versiones impares no lo son)
+      - { dependency-name: node, update-types: ["version-update:semver-major"] }
+  - package-ecosystem: github-actions
+    directory: /
+    target-branch: desarrollo
+    schedule: { interval: monthly }

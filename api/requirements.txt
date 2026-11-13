@@ -1,0 +1,13 @@
+# Dependencias de la API, con versión fija (constitución §III; spec 014 §6 y spec 016).
+# Para actualizar una: pip index versions <paquete>, probar (python -m unittest discover api/tests) y cambiarla aquí.
+
+# PostgreSQL (obligatorio, spec 016). [binary] trae libpq ya compilada: la imagen slim no necesita compilar nada.
+psycopg[binary]==3.3.8
+psycopg-pool==3.3.3
+
+# Caché compartida de datos de terceros (spec 020: tormentas). Obligatorio en Docker (servicio `redis`); sin REDIS_URL
+# o si Redis no responde, la API usa la memoria del proceso y sigue funcionando.
+redis==8.1.0
+
+# Web push (opcional en tiempo de ejecución): sin él el push queda deshabilitado y todo lo demás funciona.
+firebase-admin==7.7.0

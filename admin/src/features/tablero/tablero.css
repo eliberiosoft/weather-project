@@ -1,0 +1,4 @@
+/* Hojas de Leaflet y de los grupos en la capa «leaflet» (se cargan solo con el tablero). Solo la base de
+   MarkerCluster (animaciones del abanico); los grupos se dibujan con Tailwind en Tablero.tsx. */
+@import "leaflet/dist/leaflet.css" layer(leaflet);
+@import "leaflet.markercluster/dist/MarkerCluster.css" layer(leaflet);

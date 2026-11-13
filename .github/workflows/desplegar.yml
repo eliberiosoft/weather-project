@@ -1,0 +1,142 @@
+# Yaguachi Weather · despliegue al servidor.
+#
+# Cada push a main (o «Run workflow» a mano) empaqueta el código del commit, genera el .env con
+# las variables y secretos del repositorio y lo envía por SSH al usuario `deployer` del servidor.
+# Allí /usr/local/bin/yaguachi-deploy (deploy/yaguachi-deploy.sh) lo construye y levanta con
+# Docker Compose. La llave de deployer solo puede ejecutar ese script.
+#
+# Configuración (Settings → Secrets and variables → Actions). Guía: docs/despliegue.md
+#   Variables: DEPLOY_USER, PUERTO, PUERTO_ADMIN, URL_PUBLICA,
+#              COOKIE_SEGURA, TURNSTILE_SITE_KEY, FIREBASE_API_KEY, FIREBASE_AUTH_DOMAIN,
+#              FIREBASE_PROJECT_ID, FIREBASE_MESSAGING_SENDER_ID, FIREBASE_APP_ID, FIREBASE_VAPID_KEY
+#   Secretos:  DEPLOY_HOST, DEPLOY_KNOWN_HOSTS, DEPLOY_SSH_KEY, POSTGRES_PASSWORD, TURNSTILE_SECRET_KEY,
+#              FIREBASE_CUENTA_SERVICIO
+# DEPLOY_HOST y DEPLOY_KNOWN_HOSTS son secretos y no variables: el repositorio es público y GitHub solo tapa
+# en los logs los secretos («***»). Como variables, la IP del servidor quedaría a la vista de cualquiera.
+# Sin el secreto DEPLOY_HOST no se despliega (por ejemplo, en un fork sin configurar).
+name: Desplegar
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: desplegar-produccion
+  cancel-in-progress: false
+
+jobs:
+  # El «if» de un job no puede leer secretos: este paso previo dice si hay servidor configurado, sin mostrarlo.
+  configurado:
+    runs-on: ubuntu-24.04
+    outputs:
+      si: ${{ steps.ver.outputs.si }}
+    steps:
+      - id: ver
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+        run: |
+          if [ -n "$DEPLOY_HOST" ]; then echo "si=true" >> "$GITHUB_OUTPUT"
+          else echo "Sin el secreto DEPLOY_HOST: no se despliega."; echo "si=false" >> "$GITHUB_OUTPUT"; fi
+
+  desplegar:
+    needs: configurado
+    if: ${{ needs.configurado.outputs.si == 'true' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Código del commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Llave SSH de deployer
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          [ -n "$DEPLOY_SSH_KEY" ] || { echo "::error::falta el secreto DEPLOY_SSH_KEY"; exit 1; }
+          [ -n "$DEPLOY_KNOWN_HOSTS" ] || { echo "::error::falta el secreto DEPLOY_KNOWN_HOSTS"; exit 1; }
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deployer
+          chmod 600 ~/.ssh/deployer
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+
+      - name: Paquete (código + .env + secretos)
+        env:
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          TURNSTILE_SECRET_KEY: ${{ secrets.TURNSTILE_SECRET_KEY }}
+          FIREBASE_CUENTA_SERVICIO: ${{ secrets.FIREBASE_CUENTA_SERVICIO }}
+          PUERTO: ${{ vars.PUERTO }}
+          PUERTO_ADMIN: ${{ vars.PUERTO_ADMIN }}
+          URL_PUBLICA: ${{ vars.URL_PUBLICA }}
+          COOKIE_SEGURA: ${{ vars.COOKIE_SEGURA }}
+          TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
+          FIREBASE_API_KEY: ${{ vars.FIREBASE_API_KEY }}
+          FIREBASE_AUTH_DOMAIN: ${{ vars.FIREBASE_AUTH_DOMAIN }}
+          FIREBASE_PROJECT_ID: ${{ vars.FIREBASE_PROJECT_ID }}
+          FIREBASE_MESSAGING_SENDER_ID: ${{ vars.FIREBASE_MESSAGING_SENDER_ID }}
+          FIREBASE_APP_ID: ${{ vars.FIREBASE_APP_ID }}
+          FIREBASE_VAPID_KEY: ${{ vars.FIREBASE_VAPID_KEY }}
+        run: |
+          [ -n "$POSTGRES_PASSWORD" ] || { echo "::error::falta el secreto POSTGRES_PASSWORD"; exit 1; }
+          umask 077
+          extra="$RUNNER_TEMP/extra"
+          mkdir -p "$extra/secretos"
+          {
+            printf 'PUERTO=%s\n' "${PUERTO:-80}"
+            printf 'PUERTO_ADMIN=%s\n' "${PUERTO_ADMIN:-8091}"
+            printf 'POSTGRES_PASSWORD=%s\n' "$POSTGRES_PASSWORD"
+            printf 'URL_PUBLICA=%s\n' "$URL_PUBLICA"
+            printf 'COOKIE_SEGURA=%s\n' "${COOKIE_SEGURA:-0}"
+            printf 'TURNSTILE_SITE_KEY=%s\n' "$TURNSTILE_SITE_KEY"
+            printf 'TURNSTILE_SECRET_KEY=%s\n' "$TURNSTILE_SECRET_KEY"
+            printf 'FIREBASE_API_KEY=%s\n' "$FIREBASE_API_KEY"
+            printf 'FIREBASE_AUTH_DOMAIN=%s\n' "$FIREBASE_AUTH_DOMAIN"
+            printf 'FIREBASE_PROJECT_ID=%s\n' "$FIREBASE_PROJECT_ID"
+            printf 'FIREBASE_MESSAGING_SENDER_ID=%s\n' "$FIREBASE_MESSAGING_SENDER_ID"
+            printf 'FIREBASE_APP_ID=%s\n' "$FIREBASE_APP_ID"
+            printf 'FIREBASE_VAPID_KEY=%s\n' "$FIREBASE_VAPID_KEY"
+          } > "$extra/.env"
+          contenido=(.env)
+          if [ -n "$FIREBASE_CUENTA_SERVICIO" ]; then
+            printf '%s' "$FIREBASE_CUENTA_SERVICIO" > "$extra/secretos/firebase-cuenta-servicio.json"
+            python3 -c 'import json,sys; json.load(open(sys.argv[1]))' "$extra/secretos/firebase-cuenta-servicio.json" \
+              || { echo "::error::FIREBASE_CUENTA_SERVICIO no es un JSON válido"; exit 1; }
+            contenido+=(secretos/firebase-cuenta-servicio.json)
+          fi
+          git archive --format=tar -o "$RUNNER_TEMP/paquete.tar" HEAD
+          tar -rf "$RUNNER_TEMP/paquete.tar" -C "$extra" "${contenido[@]}"
+          rm -rf "$extra"
+          echo "paquete: $(du -h "$RUNNER_TEMP/paquete.tar" | cut -f1)"
+
+      - name: Desplegar en el servidor
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ vars.DEPLOY_USER }}
+        run: |
+          ssh -i ~/.ssh/deployer -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \
+              -o ServerAliveInterval=30 -o ConnectTimeout=20 \
+              "${DEPLOY_USER:-deployer}@$DEPLOY_HOST" "deploy $GITHUB_SHA" < "$RUNNER_TEMP/paquete.tar"
+
+      - name: Comprobar que responde
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          PUERTO: ${{ vars.PUERTO }}
+          URL_PUBLICA: ${{ vars.URL_PUBLICA }}
+        run: |
+          url="${URL_PUBLICA:-http://$DEPLOY_HOST:${PUERTO:-80}}"
+          for i in $(seq 1 12); do
+            if curl -fsS -o /dev/null --max-time 10 "$url/api/estado"; then
+              echo "OK: $url responde"; exit 0
+            fi
+            sleep 5
+          done
+          echo "::error::$url/api/estado no responde"; exit 1
+
+      - name: Limpiar
+        if: always()
+        run: rm -rf ~/.ssh/deployer "$RUNNER_TEMP/paquete.tar"

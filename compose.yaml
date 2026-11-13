@@ -1,0 +1,102 @@
+# Yaguachi Weather: API + app ciudadana (React) + panel del equipo (React, con usuarios y roles).
+#   PUERTO=8090 docker compose up -d --build
+#   app:   http://localhost:${PUERTO:-8090}
+#   panel: http://127.0.0.1:${PUERTO_ADMIN:-8091}   (solo desde este equipo)
+name: yaguachi-weather
+
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: yaguachi
+      POSTGRES_USER: yaguachi
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Define POSTGRES_PASSWORD en .env (cp .env.example .env)}
+    volumes:
+      - pg:/var/lib/postgresql/data
+    # solo desde este equipo (para psql o el desarrollo sin Docker); la API lo alcanza por la red interna
+    ports:
+      - "127.0.0.1:${PUERTO_DB:-5433}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U yaguachi -d yaguachi"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  # caché compartida de los datos de terceros (spec 020: satélite, rayos y lluvia de la próxima hora). Es solo caché:
+  # sin disco (si se reinicia se vuelve a bajar lo que haga falta) y con tope de memoria.
+  redis:
+    image: redis:8.2-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no", "--maxmemory", "96mb", "--maxmemory-policy", "allkeys-lru"]
+    # solo desde este equipo (para el desarrollo sin Docker); la API lo alcanza por la red interna
+    ports:
+      - "127.0.0.1:${PUERTO_REDIS:-6380}:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    image: yaguachi-weather-api
+    # Variables en .env (cópialo de .env.example). Sin Firebase, el push queda apagado; sin Turnstile, se usan
+    # las claves de prueba de Cloudflare (solo para desarrollo). Guía: docs/firebase-y-captcha.md
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      DATABASE_URL: postgresql://yaguachi:${POSTGRES_PASSWORD}@db:5432/yaguachi
+      URL_PUBLICA: ${URL_PUBLICA:-}                       # ej. https://yaguachiweather.ec (enlaces compartidos)
+      COOKIE_SEGURA: ${COOKIE_SEGURA:-0}                  # 1 en producción con HTTPS
+      TURNSTILE_SITE_KEY: ${TURNSTILE_SITE_KEY:-}
+      TURNSTILE_SECRET_KEY: ${TURNSTILE_SECRET_KEY:-}
+      FIREBASE_CREDENCIALES: /run/secretos/firebase-cuenta-servicio.json
+      FIREBASE_API_KEY: ${FIREBASE_API_KEY:-}
+      FIREBASE_AUTH_DOMAIN: ${FIREBASE_AUTH_DOMAIN:-}
+      FIREBASE_PROJECT_ID: ${FIREBASE_PROJECT_ID:-}
+      FIREBASE_MESSAGING_SENDER_ID: ${FIREBASE_MESSAGING_SENDER_ID:-}
+      FIREBASE_APP_ID: ${FIREBASE_APP_ID:-}
+      FIREBASE_VAPID_KEY: ${FIREBASE_VAPID_KEY:-}
+    volumes:
+      - datos:/app/datos         # fotos de reportes, config.json y el yaguachi.db de SQLite (respaldo; se importa a PostgreSQL)
+      - ./secretos:/run/secretos:ro   # la cuenta de servicio de Firebase (no se sube al repositorio)
+    # sin puertos publicados: solo la alcanzan el cliente y el admin por la red interna
+    # sin internet: docker compose run --rm api python servidor.py --offline
+    restart: unless-stopped
+
+  cliente:
+    build:
+      context: .
+      dockerfile: cliente/Dockerfile
+    image: yaguachi-weather-cliente
+    ports:
+      - "${PUERTO:-8090}:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+
+  admin:
+    build:
+      context: .
+      dockerfile: admin/Dockerfile
+    image: yaguachi-weather-admin
+    ports:
+      - "127.0.0.1:${PUERTO_ADMIN:-8091}:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  pg:
+    name: yaguachi-weather_pg     # la base PostgreSQL
+  datos:
+    name: yaguachi-weather_datos   # fotos de reportes y config.json

@@ -1,0 +1,4 @@
+# dependencias y build del panel (React + Vite)
+node_modules/
+dist/
+*.tsbuildinfo

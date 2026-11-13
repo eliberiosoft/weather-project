@@ -1,0 +1,10 @@
+# Contexto de «docker build -f cliente/Dockerfile .» (reemplaza al .dockerignore de la raíz para esta imagen).
+# Solo entra lo que el build del cliente necesita: cliente/ (sin node_modules ni dist) y compartido/.
+*
+!cliente/
+!compartido/
+cliente/node_modules/
+cliente/dist/
+cliente/**/*.md
+compartido/**/*.md
+**/.DS_Store

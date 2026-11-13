@@ -1,0 +1,22 @@
+{
+"type": "FeatureCollection",
+"name": "equipamientos",
+"xy_coordinate_resolution": 1e-06,
+"features": [
+{"type":"Feature","properties":{"id":1,"nombre":"Dr. Jose Cevallos Ruiz","categoria":"Salud","parroquia":"SAN JACINTO DE YAGUACHI","riesgo_base":"ALTO"},"geometry":{"type":"Point","coordinates":[-79.688649,-2.094143]}},
+{"type":"Feature","properties":{"id":2,"nombre":"UPC LA SOLEDAD","categoria":"Seguridad","parroquia":"GENERAL PEDRO J. MONTERO","riesgo_base":"MEDIO"},"geometry":{"type":"Point","coordinates":[-79.561359,-2.257335]}},
+{"type":"Feature","properties":{"id":3,"nombre":"Unidad Educativa FAE","categoria":"Educación","parroquia":"VIRGEN DE FÁTIMA","riesgo_base":"ALTO"},"geometry":{"type":"Point","coordinates":[-79.66505,-2.246132]}},
+{"type":"Feature","properties":{"id":4,"nombre":"Dispensario IESS El Deseo","categoria":"Salud","parroquia":"YAGUACHI VIEJO","riesgo_base":"ALTO"},"geometry":{"type":"Point","coordinates":[-79.628463,-2.202938]}},
+{"type":"Feature","properties":{"id":5,"nombre":"UPC P.J. Montero","categoria":"Seguridad","parroquia":"GENERAL PEDRO J. MONTERO","riesgo_base":"MUY ALTO"},"geometry":{"type":"Point","coordinates":[-79.62618,-2.254403]}},
+{"type":"Feature","properties":{"id":6,"nombre":"UPC yaguachi","categoria":"Seguridad","parroquia":"SAN JACINTO DE YAGUACHI","riesgo_base":"MUY ALTO"},"geometry":{"type":"Point","coordinates":[-79.69041,-2.097724]}},
+{"type":"Feature","properties":{"id":7,"nombre":"Colegio 7 de Agosto","categoria":"Educación","parroquia":"VIRGEN DE FÁTIMA","riesgo_base":"ALTO"},"geometry":{"type":"Point","coordinates":[-79.641078,-2.240911]}},
+{"type":"Feature","properties":{"id":8,"nombre":"s/n","categoria":"Educación","parroquia":"SAN JACINTO DE YAGUACHI","riesgo_base":"MUY ALTO"},"geometry":{"type":"Point","coordinates":[-79.694022,-2.09453]}},
+{"type":"Feature","properties":{"id":9,"nombre":"s/n","categoria":"Educación","parroquia":"SAN JACINTO DE YAGUACHI","riesgo_base":"MUY ALTO"},"geometry":{"type":"Point","coordinates":[-79.693726,-2.09514]}},
+{"type":"Feature","properties":{"id":10,"nombre":"s/n","categoria":"Educación","parroquia":"SAN JACINTO DE YAGUACHI","riesgo_base":"MUY ALTO"},"geometry":{"type":"Point","coordinates":[-79.693203,-2.09922]}},
+{"type":"Feature","properties":{"id":11,"nombre":"s/n","categoria":"Educación","parroquia":"SAN JACINTO DE YAGUACHI","riesgo_base":"MUY ALTO"},"geometry":{"type":"Point","coordinates":[-79.691978,-2.098017]}},
+{"type":"Feature","properties":{"id":12,"nombre":"Unidad educativa 21 de Julio","categoria":"Educación","parroquia":"SAN JACINTO DE YAGUACHI","riesgo_base":"MUY ALTO"},"geometry":{"type":"Point","coordinates":[-79.694395,-2.098478]}},
+{"type":"Feature","properties":{"id":13,"nombre":"Unidad Educativa Antonio José de Sucre","categoria":"Educación","parroquia":"SAN JACINTO DE YAGUACHI","riesgo_base":"MUY ALTO"},"geometry":{"type":"Point","coordinates":[-79.688915,-2.096462]}},
+{"type":"Feature","properties":{"id":14,"nombre":"s/n","categoria":"Salud","parroquia":"SAN JACINTO DE YAGUACHI","riesgo_base":"ALTO"},"geometry":{"type":"Point","coordinates":[-79.688709,-2.094602]}},
+{"type":"Feature","properties":{"id":15,"nombre":"s/n","categoria":"Educación","parroquia":"SAN JACINTO DE YAGUACHI","riesgo_base":"ALTO"},"geometry":{"type":"Point","coordinates":[-79.696608,-2.091798]}}
+]
+}

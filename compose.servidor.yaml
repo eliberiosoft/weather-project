@@ -1,0 +1,13 @@
+# Solo en el servidor: lo activa deploy/yaguachi-deploy.sh con COMPOSE_FILE=compose.yaml:compose.servidor.yaml.
+# Los datos se guardan en directorios del servidor en lugar de volúmenes de Docker. Así se ven, respaldan y
+# mueven con herramientas normales. Los crea deploy/preparar-servidor.sh:
+#   /opt/database  PostgreSQL (dueño 70 = usuario postgres de la imagen alpine, 700)
+#   /opt/files     fotos de reportes y config.json (dueño 1000 = usuario yaguachi de la API, 750)
+# En desarrollo no se usa: compose.yaml usa los volúmenes yaguachi-weather_pg y yaguachi-weather_datos.
+services:
+  db:
+    volumes:
+      - ${DIR_DB:-/opt/database}:/var/lib/postgresql/data
+  api:
+    volumes:
+      - ${DIR_DATOS:-/opt/files}:/app/datos

@@ -1,0 +1,808 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-09T21:28:19Z",
+  "title": "Design System: Yaguachi Weather",
+  "extensions": {
+    "colorMeta": {
+      "cielo-1": {
+        "role": "neutral",
+        "displayName": "Cielo alto",
+        "canonical": "#bfe3f6",
+        "oklch": "oklch(89.6% 0.046 231)",
+        "tonalRamp": [
+          "#050c11",
+          "#15272f",
+          "#294451",
+          "#426373",
+          "#618394",
+          "#84a4b5",
+          "#b1c8d4",
+          "#e4f1f8"
+        ]
+      },
+      "cielo-2": {
+        "role": "neutral",
+        "displayName": "Cielo medio",
+        "canonical": "#dcf0fa",
+        "oklch": "oklch(94.3% 0.025 229)",
+        "tonalRamp": [
+          "#080c0e",
+          "#1c262a",
+          "#344249",
+          "#4f6169",
+          "#6e8089",
+          "#90a2aa",
+          "#bac6cd",
+          "#e9f0f3"
+        ]
+      },
+      "cielo-3": {
+        "role": "neutral",
+        "displayName": "Cielo bajo",
+        "canonical": "#f0f8fc",
+        "oklch": "oklch(97.4% 0.010 229)",
+        "tonalRamp": [
+          "#0a0b0c",
+          "#212526",
+          "#3b4143",
+          "#585f62",
+          "#777f82",
+          "#99a0a3",
+          "#c0c5c7",
+          "#eceff0"
+        ]
+      },
+      "suelo": {
+        "role": "neutral",
+        "displayName": "Suelo celeste",
+        "canonical": "#eaf5fb",
+        "oklch": "oklch(96.4% 0.014 231)",
+        "tonalRamp": [
+          "#090c0d",
+          "#202528",
+          "#394145",
+          "#565f64",
+          "#757f84",
+          "#96a0a5",
+          "#bec5c9",
+          "#ebeff1"
+        ]
+      },
+      "papel": {
+        "role": "neutral",
+        "displayName": "Papel",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 90)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ]
+      },
+      "vidrio": {
+        "role": "neutral",
+        "displayName": "Vidrio",
+        "canonical": "rgb(255 255 255 / .74)",
+        "note": "Blanco translúcido sobre el degradado de cielo; siempre con filo blanco al 70 %.",
+        "tonalRamp": [
+          "rgb(255 255 255 / .55)",
+          "rgb(255 255 255 / .6)",
+          "rgb(255 255 255 / .7)",
+          "rgb(255 255 255 / .74)",
+          "rgb(255 255 255 / .75)",
+          "rgb(255 255 255 / .8)",
+          "rgb(255 255 255 / .85)",
+          "rgb(255 255 255 / .94)"
+        ]
+      },
+      "texto": {
+        "role": "neutral",
+        "displayName": "Texto petróleo",
+        "canonical": "#163a52",
+        "oklch": "oklch(33.4% 0.059 241)",
+        "tonalRamp": [
+          "#040c13",
+          "#132634",
+          "#254359",
+          "#3e627c",
+          "#5d829d",
+          "#80a3be",
+          "#aec8dc",
+          "#e3f1fc"
+        ]
+      },
+      "gris": {
+        "role": "neutral",
+        "displayName": "Gris de apoyo",
+        "canonical": "#4b6478",
+        "oklch": "oklch(49.1% 0.044 243)",
+        "tonalRamp": [
+          "#060c11",
+          "#182630",
+          "#2e4253",
+          "#486175",
+          "#678196",
+          "#89a2b7",
+          "#b5c7d6",
+          "#e6f0f8"
+        ]
+      },
+      "regla": {
+        "role": "neutral",
+        "displayName": "Regla",
+        "canonical": "#d5e5ee",
+        "oklch": "oklch(91.3% 0.021 232)",
+        "tonalRamp": [
+          "#080c0e",
+          "#1e2529",
+          "#364248",
+          "#526068",
+          "#718088",
+          "#93a1a9",
+          "#bcc6cc",
+          "#eaeff3"
+        ]
+      },
+      "tinta": {
+        "role": "primary",
+        "displayName": "Tinta petróleo",
+        "canonical": "#1d5f84",
+        "oklch": "oklch(46.2% 0.088 238)",
+        "tonalRamp": [
+          "#010d17",
+          "#03273b",
+          "#094563",
+          "#236489",
+          "#4685ac",
+          "#6ba6cc",
+          "#a1cae6",
+          "#dcf2ff"
+        ]
+      },
+      "tinta-2": {
+        "role": "primary",
+        "displayName": "Tinta presionada",
+        "canonical": "#174d6c",
+        "oklch": "oklch(40.1% 0.076 238)",
+        "tonalRamp": [
+          "#020d15",
+          "#0a2738",
+          "#17445f",
+          "#306384",
+          "#5084a6",
+          "#74a5c6",
+          "#a7c9e1",
+          "#dff2ff"
+        ]
+      },
+      "tinta-suave": {
+        "role": "primary",
+        "displayName": "Tinte celeste",
+        "canonical": "#dcf0fa",
+        "oklch": "oklch(94.3% 0.025 229)",
+        "tonalRamp": [
+          "#080c0e",
+          "#1c262a",
+          "#344249",
+          "#4f6169",
+          "#6e8089",
+          "#90a2aa",
+          "#bac6cd",
+          "#e9f0f3"
+        ]
+      },
+      "negro": {
+        "role": "secondary",
+        "displayName": "Negro petróleo de emergencia",
+        "canonical": "#102a3c",
+        "oklch": "oklch(27.4% 0.046 241)",
+        "tonalRamp": [
+          "#060c11",
+          "#172631",
+          "#2c4353",
+          "#466176",
+          "#658197",
+          "#87a2b8",
+          "#b3c7d7",
+          "#e5f0f9"
+        ]
+      },
+      "cielo": {
+        "role": "tertiary",
+        "displayName": "Cielo (lluvia)",
+        "canonical": "#3bb3e8",
+        "oklch": "oklch(72.4% 0.129 232)",
+        "tonalRamp": [
+          "#000e1b",
+          "#002943",
+          "#004770",
+          "#006899",
+          "#0089bc",
+          "#3cabdd",
+          "#8acef2",
+          "#d1f5ff"
+        ]
+      },
+      "nube": {
+        "role": "tertiary",
+        "displayName": "Nube",
+        "canonical": "#d6ecf8",
+        "oklch": "oklch(93.1% 0.028 231)",
+        "tonalRamp": [
+          "#070c0f",
+          "#1c262b",
+          "#33424b",
+          "#4e616b",
+          "#6d818b",
+          "#8ea2ac",
+          "#b9c7ce",
+          "#e8f0f4"
+        ]
+      },
+      "sol": {
+        "role": "tertiary",
+        "displayName": "Sol",
+        "canonical": "#f6b13b",
+        "oklch": "oklch(80.6% 0.150 76)",
+        "tonalRamp": [
+          "#170700",
+          "#3c1a00",
+          "#653100",
+          "#8b4d00",
+          "#ae6d00",
+          "#d09017",
+          "#e9bc79",
+          "#ffebc8"
+        ]
+      },
+      "sol-claro": {
+        "role": "tertiary",
+        "displayName": "Sol claro",
+        "canonical": "#ffd66b",
+        "oklch": "oklch(89.1% 0.133 89)",
+        "tonalRamp": [
+          "#130900",
+          "#342000",
+          "#593900",
+          "#7c5700",
+          "#9e7700",
+          "#be9930",
+          "#dcc281",
+          "#fbeecb"
+        ]
+      },
+      "n0": {
+        "role": "tertiary",
+        "displayName": "Sin dato",
+        "canonical": "#d9dde5",
+        "oklch": "oklch(89.7% 0.012 265)",
+        "tonalRamp": [
+          "#0a0b0c",
+          "#222427",
+          "#3e4044",
+          "#5b5e63",
+          "#7a7d83",
+          "#9b9ea5",
+          "#c0c4cc",
+          "#eceef2"
+        ]
+      },
+      "n1": {
+        "role": "tertiary",
+        "displayName": "Semáforo NORMAL",
+        "canonical": "#1a9641",
+        "oklch": "oklch(59.0% 0.161 148)",
+        "tonalRamp": [
+          "#001002",
+          "#003000",
+          "#005012",
+          "#007229",
+          "#1a9641",
+          "#57b66a",
+          "#8ada97",
+          "#d8f9dc"
+        ]
+      },
+      "n2": {
+        "role": "tertiary",
+        "displayName": "Semáforo VIGILANCIA",
+        "canonical": "#ffd92f",
+        "oklch": "oklch(89.2% 0.173 95)",
+        "tonalRamp": [
+          "#110a00",
+          "#332100",
+          "#523d00",
+          "#745b00",
+          "#977b00",
+          "#bc9c00",
+          "#e5c217",
+          "#ffefaf"
+        ]
+      },
+      "n3": {
+        "role": "tertiary",
+        "displayName": "Semáforo PREPARACIÓN",
+        "canonical": "#fd8d3c",
+        "oklch": "oklch(75.2% 0.163 53)",
+        "tonalRamp": [
+          "#180500",
+          "#460e00",
+          "#6b2900",
+          "#934400",
+          "#bd6115",
+          "#e87e30",
+          "#ffa55d",
+          "#ffe3c4"
+        ]
+      },
+      "n4": {
+        "role": "tertiary",
+        "displayName": "Semáforo RESPUESTA",
+        "canonical": "#d7191c",
+        "oklch": "oklch(56.0% 0.218 28)",
+        "tonalRamp": [
+          "#1f0000",
+          "#570000",
+          "#840000",
+          "#b30009",
+          "#df302b",
+          "#fd675a",
+          "#ff998a",
+          "#ffdfd7"
+        ],
+        "note": "RESPUESTA no lleva degradado; n4-claro está declarado en fuente.css pero no se usa."
+      },
+      "n0-claro": {
+        "role": "tertiary",
+        "displayName": "Tinte sin dato",
+        "canonical": "#f1f4f8",
+        "oklch": "oklch(96.6% 0.006 255)",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#232426",
+          "#3e4043",
+          "#5b5e61",
+          "#7b7d81",
+          "#9c9fa2",
+          "#c2c4c7",
+          "#edeef0"
+        ]
+      },
+      "n1-claro": {
+        "role": "tertiary",
+        "displayName": "Tinte NORMAL",
+        "canonical": "#a6dbb5",
+        "oklch": "oklch(84.4% 0.076 153)",
+        "tonalRamp": [
+          "#030e06",
+          "#102b19",
+          "#204a2f",
+          "#396a49",
+          "#588b68",
+          "#7cac8a",
+          "#acceb5",
+          "#e2f4e6"
+        ]
+      },
+      "n2-claro": {
+        "role": "tertiary",
+        "displayName": "Tinte VIGILANCIA",
+        "canonical": "#fff3b0",
+        "oklch": "oklch(95.8% 0.086 99)",
+        "tonalRamp": [
+          "#0e0b00",
+          "#2a2401",
+          "#4a4003",
+          "#6a5e1c",
+          "#8a7e3e",
+          "#aba063",
+          "#cdc59b",
+          "#f3efd8"
+        ]
+      },
+      "n3-claro": {
+        "role": "tertiary",
+        "displayName": "Tinte PREPARACIÓN",
+        "canonical": "#ffd2ad",
+        "oklch": "oklch(89.4% 0.070 61)",
+        "tonalRamp": [
+          "#130902",
+          "#331f0c",
+          "#57381b",
+          "#7a5432",
+          "#9c7451",
+          "#bd9574",
+          "#dbbea6",
+          "#fcebde"
+        ]
+      },
+      "a1": {
+        "role": "tertiary",
+        "displayName": "Agua hasta la vereda",
+        "canonical": "#6baed6",
+        "oklch": "oklch(72.1% 0.090 236)",
+        "tonalRamp": [
+          "#030d14",
+          "#01283b",
+          "#18455d",
+          "#316481",
+          "#4b85a7",
+          "#66a7ce",
+          "#8fcdf3",
+          "#d8f3ff"
+        ]
+      },
+      "a2": {
+        "role": "tertiary",
+        "displayName": "Agua sobre la vereda",
+        "canonical": "#2171b5",
+        "oklch": "oklch(53.6% 0.130 249)",
+        "tonalRamp": [
+          "#010c1a",
+          "#00244d",
+          "#004174",
+          "#14609f",
+          "#3b81c2",
+          "#68a4de",
+          "#97c9fc",
+          "#ddf1ff"
+        ]
+      },
+      "a3": {
+        "role": "tertiary",
+        "displayName": "No cruces",
+        "canonical": "#08306b",
+        "oklch": "oklch(32.2% 0.112 259)",
+        "tonalRamp": [
+          "#010a1f",
+          "#002056",
+          "#193e77",
+          "#3b5e93",
+          "#5e7eb0",
+          "#83a0cd",
+          "#acc6ed",
+          "#e5efff"
+        ]
+      },
+      "escenario": {
+        "role": "tertiary",
+        "displayName": "Escenario",
+        "canonical": "#7a0177",
+        "oklch": "oklch(40.5% 0.184 330)",
+        "tonalRamp": [
+          "#190018",
+          "#480047",
+          "#6d006b",
+          "#8f2e8a",
+          "#ad58a7",
+          "#cb7fc5",
+          "#ecabe6",
+          "#ffe5fc"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Solo el nombre del nivel en la ficha del nivel (3rem en lg; 1.9rem en la versión compacta)."
+      },
+      "headline": {
+        "displayName": "Título de pantalla",
+        "purpose": "Nombre del lugar y títulos de pantalla; 1.4rem si el nombre pasa de 22 caracteres."
+      },
+      "cifra": {
+        "displayName": "Cifra",
+        "purpose": "Número de las fichas de dato, con unidad en 1rem gris."
+      },
+      "title": {
+        "displayName": "Título de ficha",
+        "purpose": "Títulos de ficha; 1.25rem en hojas."
+      },
+      "body": {
+        "displayName": "Cuerpo",
+        "purpose": "Texto corrido."
+      },
+      "nota": {
+        "displayName": "Nota",
+        "purpose": "Notas y metadatos en gris."
+      },
+      "label": {
+        "displayName": "Rótulo",
+        "purpose": "Botones, campos, píldoras; 0.72rem en la barra inferior."
+      },
+      "placa": {
+        "displayName": "Placa de nivel",
+        "purpose": "Nombre de nivel dentro de una píldora del color del nivel."
+      }
+    },
+    "shadows": [
+      {
+        "name": "ficha",
+        "value": "0 1px 2px rgb(22 58 82 / .06), 0 14px 30px -16px rgb(22 58 82 / .32)",
+        "purpose": "Fichas del mosaico y del asistente, ficha del nivel, banners, botón atrás, píldora «En el mapa»."
+      },
+      {
+        "name": "flota",
+        "value": "0 2px 6px rgb(22 58 82 / .10), 0 16px 34px -12px rgb(22 58 82 / .34)",
+        "purpose": "Controles y marcadores sobre el mapa, hojas en escritorio, toasts, perilla del interruptor, botón «Siguiente», visto final."
+      },
+      {
+        "name": "hoja",
+        "value": "0 -12px 34px -8px rgb(22 58 82 / .28)",
+        "purpose": "Hojas inferiores en móvil."
+      },
+      {
+        "name": "etiqueta",
+        "value": "0 1px 3px rgb(22 58 82 / .25)",
+        "purpose": "Etiquetas de recinto sobre el mapa."
+      },
+      {
+        "name": "filo-vidrio",
+        "value": "0 0 0 1px rgb(255 255 255 / .7)",
+        "purpose": "Filo blanco (ring-1 ring-white/70) de toda ficha de vidrio."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-sale",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Curva de todas las entradas."
+      },
+      {
+        "name": "entra",
+        "value": "entra .32s var(--ease-sale)",
+        "purpose": "Cambio de pantalla y cascada de las fichas de «Mi lugar» (retraso --d de 55 ms por ficha): sube 10 px y escala desde .985 con fundido."
+      },
+      {
+        "name": "hoja",
+        "value": "hoja .34s var(--ease-sale)",
+        "purpose": "Hoja inferior que sube desde translateY(100%)."
+      },
+      {
+        "name": "sube",
+        "value": "sube .25s var(--ease-sale)",
+        "purpose": "Toast que sube 10 px con fundido."
+      },
+      {
+        "name": "ola",
+        "value": "ola 9s linear infinite",
+        "purpose": "Ola delantera de la ficha del nivel."
+      },
+      {
+        "name": "ola-lenta",
+        "value": "ola 15s linear infinite reverse",
+        "purpose": "Ola trasera, en sentido contrario."
+      },
+      {
+        "name": "flota",
+        "value": "flota 6s ease-in-out infinite",
+        "purpose": "La nube de la escena sube y baja 5 px."
+      },
+      {
+        "name": "gota",
+        "value": "gota 1.2s cubic-bezier(.45, 0, 1, 1) infinite",
+        "purpose": "Gotas que caen de la nube, escalonadas .17 s."
+      },
+      {
+        "name": "dibujar",
+        "value": "dibujar 1.4s var(--ease-sale) both",
+        "purpose": "Trazo que se dibuja: curva de lluvia y visto de la pantalla de gracias."
+      },
+      {
+        "name": "paso",
+        "value": "paso .34s var(--ease-sale)",
+        "purpose": "Paso del asistente que entra desde la derecha (+28 px)."
+      },
+      {
+        "name": "paso-atras",
+        "value": "paso-atras .34s var(--ease-sale)",
+        "purpose": "Paso del asistente que entra desde la izquierda al volver (−28 px)."
+      },
+      {
+        "name": "presion",
+        "value": "transform: scale(.98) / scale(.95) / scale(.97)",
+        "purpose": "Respuesta táctil: botones de bloque, píldoras, opciones del asistente."
+      },
+      {
+        "name": "reduccion",
+        "value": "@media (prefers-reduced-motion: reduce)",
+        "purpose": "Apaga toda animación y transición; el asistente avanza sin pausa."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px",
+        "purpose": "Hojas pasan a panel flotante de 24rem; controles del mapa a 30rem."
+      },
+      {
+        "name": "lg",
+        "value": "1024px",
+        "purpose": "Mosaico de 4 columnas; ficha del nivel 2×2."
+      }
+    ],
+    "proyecto": {
+      "estilos": "Tailwind v4 solo con el CLI standalone: sh estilos.sh (fuente web/estilos/fuente.css → web/estilos.css)",
+      "i18n": "Todo texto de interfaz por web/i18n.js, web/textos-app.js, web/textos-panel.js (es, en)",
+      "detector": "impeccable detect en 0 hallazgos"
+    }
+  },
+  "components": [
+    {
+      "name": "Botón primario",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal de una ficha u hoja: tinta, ancho completo, encoge al presionar.",
+      "html": "<button class=\"ds-btn-primario\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M2 9q2.5-3 5 0t5 0 5 0 5 0M2 15q2.5-3 5 0t5 0 5 0 5 0\"/></svg><span>Reportar calle con agua</span></button>",
+      "css": ".ds-btn-primario { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; padding:0 16px; border:0; border-radius:1rem; font:600 1rem/1.25 var(--font-sans, system-ui, -apple-system, 'SF Pro Text', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif); cursor:pointer; transition: background-color .15s, transform .15s; width:100%; background:var(--color-tinta, #1d5f84); color:#fff; } .ds-btn-primario:hover { background:var(--color-tinta-2, #174d6c); } .ds-btn-primario:active { transform:scale(.98); } .ds-btn-primario:focus-visible { outline: 3px solid var(--color-tinta, #1d5f84); outline-offset: 2px; } .ds-btn-primario:disabled { opacity:.45; }"
+    },
+    {
+      "name": "Botón secundario",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Acciones secundarias: tinte celeste con texto tinta.",
+      "html": "<button class=\"ds-btn-sec\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v4M12 18v4M2 12h4M18 12h4\"/></svg><span>Usar mi ubicación</span></button>",
+      "css": ".ds-btn-sec { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; padding:0 16px; border:0; border-radius:1rem; font:600 1rem/1.25 var(--font-sans, system-ui, -apple-system, 'SF Pro Text', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif); cursor:pointer; transition: background-color .15s, transform .15s; width:100%; background:var(--color-tinta-suave, #dcf0fa); color:var(--color-tinta, #1d5f84); } .ds-btn-sec:active { transform:scale(.98); } .ds-btn-sec:focus-visible { outline: 3px solid var(--color-tinta, #1d5f84); outline-offset: 2px; }"
+    },
+    {
+      "name": "Botón píldora y 911",
+      "kind": "button",
+      "refersTo": "button-pill",
+      "description": "Botones pequeños en píldora: votos (tinte) y llamada al 911 (negro).",
+      "html": "<div class=\"ds-pildoras\"><button class=\"ds-pildora\">Sigue con agua · 3</button><a class=\"ds-pildora ds-pildora-911\" href=\"tel:911\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 3h4l2 5-2.5 1.5a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A17 17 0 013 5a2 2 0 012-2z\"/></svg><span>911</span></a></div>",
+      "css": ".ds-pildoras { display:flex; gap:8px; font-family:var(--font-sans, system-ui, -apple-system, 'SF Pro Text', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif); } .ds-pildora { display:inline-flex; align-items:center; gap:6px; height:36px; padding:0 14px; border:0; border-radius:9999px; background:var(--color-tinta-suave, #dcf0fa); color:var(--color-tinta, #1d5f84); font:600 .875rem/1 var(--font-sans, system-ui, -apple-system, 'SF Pro Text', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif); text-decoration:none; cursor:pointer; transition:transform .15s; } .ds-pildora-911 { background:var(--color-negro, #102a3c); color:#fff; font-weight:700; } .ds-pildora:active { transform:scale(.95); } .ds-pildora:focus-visible { outline: 3px solid var(--color-tinta, #1d5f84); outline-offset: 2px; }"
+    },
+    {
+      "name": "Ficha del nivel",
+      "kind": "card",
+      "refersTo": "ficha-nivel-n3",
+      "description": "La pieza grande del mosaico: degradado del mismo tono, sello arriba, nivel a todo el ancho, escala de 4 barras y escena viva (olas que suben con el nivel, nube que llueve según el pronóstico).",
+      "html": "<div class=\"ds-nivel\"><div class=\"ds-agua\"><svg viewBox=\"0 0 800 100\" preserveAspectRatio=\"none\"><path d=\"M0 18 Q50 0 100 18 T200 18 T300 18 T400 18 T500 18 T600 18 T700 18 T800 18 V100 H0Z\"/></svg></div><svg class=\"ds-nube\" viewBox=\"0 0 120 100\" aria-hidden=\"true\"><path d=\"M30 64a18 18 0 012-36 26 26 0 0148-6 20 20 0 0114 42z\" fill=\"#fff\"/><line x1=\"52\" y1=\"72\" x2=\"49\" y2=\"82\"/><line x1=\"64\" y1=\"72\" x2=\"61\" y2=\"82\"/><line x1=\"76\" y1=\"72\" x2=\"73\" y2=\"82\"/></svg><span class=\"ds-nivel-sello\">Estimado</span><div class=\"ds-nivel-nombre\">PREPARACIÓN</div><p class=\"ds-nivel-motivo\">Río Milagro a 113 m</p><ol class=\"ds-nivel-escala\"><li><span></span></li><li><span></span></li><li class=\"on\"><span></span><b>PREPARACIÓN</b></li><li><span></span></li></ol></div>",
+      "css": ".ds-nivel { position:relative; overflow:hidden; max-width:22rem; padding:20px; border-radius:2rem; background:linear-gradient(150deg, var(--color-n3-claro, #ffd2ad), var(--color-n3, #fd8d3c)); color:var(--color-texto, #163a52); box-shadow:var(--shadow-ficha, 0 1px 2px rgb(22 58 82 / .06), 0 14px 30px -16px rgb(22 58 82 / .32)); font-family:var(--font-sans, system-ui, -apple-system, 'SF Pro Text', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif); } .ds-agua { position:absolute; inset:auto 0 0 0; height:42%; pointer-events:none; } .ds-agua svg { position:absolute; bottom:0; left:0; width:200%; height:100%; fill:rgb(255 255 255 / .3); animation:ds-ola 9s linear infinite; } @keyframes ds-ola { to { transform:translateX(-50%); } } .ds-nube { position:absolute; top:8px; right:12px; width:96px; height:80px; } .ds-nube line { stroke:var(--color-cielo, #3bb3e8); stroke-width:4; stroke-linecap:round; } .ds-nivel-sello, .ds-nivel-nombre, .ds-nivel-motivo, .ds-nivel-escala { position:relative; } .ds-nivel-sello { display:inline-flex; padding:4px 12px; border-radius:9999px; background:rgb(255 255 255 / .6); font-size:.85rem; font-weight:600; } .ds-nivel-nombre { margin-top:12px; font-size:2.5rem; line-height:1; font-weight:800; letter-spacing:-.025em; } .ds-nivel-motivo { margin:8px 0 0; font-weight:600; } .ds-nivel-escala { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin:20px 0 0; padding:0; list-style:none; } .ds-nivel-escala span { display:block; height:8px; border-radius:9999px; background:rgb(22 58 82 / .15); } .ds-nivel-escala li.on { display:flex; flex-direction:column; align-items:flex-end; } .ds-nivel-escala li.on span { width:100%; background:rgb(22 58 82 / .8); } .ds-nivel-escala b { margin-top:6px; font-size:.75rem; white-space:nowrap; } @media (prefers-reduced-motion: reduce) { .ds-agua svg { animation:none; } }"
+    },
+    {
+      "name": "Fichas de dato",
+      "kind": "card",
+      "refersTo": "ficha-cifra",
+      "description": "Celdas pequeñas del mosaico con rótulo gris, ícono tinta y cifra tabular grande; la del 911 va en negro.",
+      "html": "<div class=\"ds-mosaico\"><div class=\"ds-dato\"><span class=\"ds-dato-rot\">Lluvia 24 h</span><b class=\"ds-dato-cifra\">38<small>mm</small></b></div><a class=\"ds-dato ds-dato-911\" href=\"tel:911\"><span class=\"ds-dato-ico\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 3h4l2 5-2.5 1.5a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A17 17 0 013 5a2 2 0 012-2z\"/></svg></span><b>Llamar al ECU 911</b></a></div>",
+      "css": ".ds-mosaico { display:grid; grid-template-columns:repeat(2, 10rem); gap:12px; padding:16px; background:var(--color-suelo, #eaf5fb); font-family:var(--font-sans, system-ui, -apple-system, 'SF Pro Text', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif); } .ds-dato { display:flex; flex-direction:column; justify-content:space-between; gap:12px; min-height:7rem; padding:16px; border-radius:1.6rem; background:var(--color-vidrio, rgb(255 255 255 / .74)); outline:1px solid rgb(255 255 255 / .7); outline-offset:-1px; color:var(--color-texto, #163a52); box-shadow:var(--shadow-ficha, 0 1px 2px rgb(22 58 82 / .06), 0 14px 30px -16px rgb(22 58 82 / .32)); text-decoration:none; } .ds-dato-rot { font-size:.875rem; font-weight:500; color:var(--color-gris, #4b6478); } .ds-dato-cifra { font-size:1.9rem; line-height:1; font-weight:700; letter-spacing:-.025em; font-variant-numeric:tabular-nums; } .ds-dato-cifra small { margin-left:2px; font-size:1rem; font-weight:600; color:var(--color-gris, #4b6478); } .ds-dato-911 { background:var(--color-negro, #102a3c); color:#fff; font-size:1.05rem; line-height:1.25; } .ds-dato-911:active { transform:scale(.98); } .ds-dato-911:focus-visible { outline: 3px solid var(--color-tinta, #1d5f84); outline-offset: 2px; } .ds-dato-ico { display:grid; place-items:center; width:40px; height:40px; border-radius:9999px; background:rgb(255 255 255 / .15); }"
+    },
+    {
+      "name": "Ficha con lista",
+      "kind": "card",
+      "refersTo": "ficha",
+      "description": "Ficha de vidrio con filo blanco de 1.6rem con título y filas separadas por 1 px de regla; caja de ícono en tinte celeste y chips de estado en píldora.",
+      "html": "<section class=\"ds-ficha\"><h2>Calles con agua cerca</h2><ul><li><span class=\"ds-ico\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M2 9q2.5-3 5 0t5 0 5 0 5 0M2 15q2.5-3 5 0t5 0 5 0 5 0\"/></svg></span><div><b>Av. Jaime Roldós</b> <span class=\"ds-chip\">reportada por vecinos</span><div class=\"ds-meta\">Cabecera · hace 20 min</div></div></li><li><span class=\"ds-ico\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M2 9q2.5-3 5 0t5 0 5 0 5 0M2 15q2.5-3 5 0t5 0 5 0 5 0\"/></svg></span><div><b>Calle 9 de Octubre</b> <span class=\"ds-chip ds-chip-ok\">verificada</span><div class=\"ds-meta\">Cabecera · hace 1 h</div></div></li></ul></section>",
+      "css": ".ds-ficha { max-width:24rem; padding:20px; border-radius:1.6rem; background:var(--color-vidrio, rgb(255 255 255 / .74)); outline:1px solid rgb(255 255 255 / .7); outline-offset:-1px; color:var(--color-texto, #163a52); box-shadow:var(--shadow-ficha, 0 1px 2px rgb(22 58 82 / .06), 0 14px 30px -16px rgb(22 58 82 / .32)); font:400 1rem/1.45 var(--font-sans, system-ui, -apple-system, 'SF Pro Text', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif); } .ds-ficha h2 { margin:0; font-size:1.125rem; font-weight:700; } .ds-ficha ul { margin:4px 0 0; padding:0; list-style:none; } .ds-ficha li { display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--color-regla, #d5e5ee); } .ds-ficha li:last-child { border-bottom:0; } .ds-ico { display:grid; place-items:center; flex:none; width:40px; height:40px; border-radius:.75rem; background:var(--color-tinta-suave, #dcf0fa); color:var(--color-tinta, #1d5f84); } .ds-meta { margin-top:2px; font-size:.875rem; color:var(--color-gris, #4b6478); } .ds-chip { display:inline-flex; margin-left:4px; padding:2px 8px; border-radius:9999px; background:var(--color-tinta-suave, #dcf0fa); color:var(--color-tinta, #1d5f84); font-size:.7rem; font-weight:600; } .ds-chip-ok { background:var(--color-tinta, #1d5f84); color:#fff; }"
+    },
+    {
+      "name": "Control segmentado",
+      "kind": "chip",
+      "refersTo": "segmentado",
+      "description": "Pista suelo con opciones; la elegida sube a papel con sombra de ficha.",
+      "html": "<div class=\"ds-seg\" role=\"radiogroup\"><button role=\"radio\" aria-checked=\"true\">Calles</button><button role=\"radio\" aria-checked=\"false\">Satélite</button></div>",
+      "css": ".ds-seg { display:grid; grid-template-columns:1fr 1fr; gap:4px; width:18rem; padding:4px; border-radius:1rem; background:var(--color-suelo, #eaf5fb); font-family:var(--font-sans, system-ui, -apple-system, 'SF Pro Text', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif); } .ds-seg button { min-height:40px; border:0; border-radius:.75rem; background:transparent; color:var(--color-gris, #4b6478); font:600 .875rem/1 var(--font-sans, system-ui, -apple-system, 'SF Pro Text', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif); cursor:pointer; } .ds-seg button[aria-checked=true] { background:var(--color-papel, #fff); color:var(--color-texto, #163a52); box-shadow:var(--shadow-ficha, 0 1px 2px rgb(22 58 82 / .06), 0 14px 30px -16px rgb(22 58 82 / .32)); } .ds-seg button:hover { color:var(--color-texto, #163a52); } .ds-seg button:focus-visible { outline: 3px solid var(--color-tinta, #1d5f84); outline-offset: 2px; }"
+    },
+    {
+      "name": "Hoja inferior con interruptores",
+      "kind": "custom",
+      "refersTo": "hoja",
+      "description": "Hoja que sube desde abajo con asa, título y botón de cerrar; dentro, lista agrupada de capas con interruptores iOS.",
+      "html": "<div class=\"ds-hoja\"><span class=\"ds-asa\"></span><div class=\"ds-hoja-cab\"><h2>Capas</h2><button class=\"ds-cerrar\" aria-label=\"Cerrar\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M6 6l12 12M18 6L6 18\"/></svg></button></div><div class=\"ds-grupo\"><label class=\"ds-fila\"><span><b>Calles con agua</b><small>Al tobillo · A la rodilla · No se puede pasar</small></span><input type=\"checkbox\" checked><span class=\"ds-sw\"><span></span></span></label><label class=\"ds-fila\"><span><b>Ríos</b><small>Color del nivel</small></span><input type=\"checkbox\"><span class=\"ds-sw\"><span></span></span></label></div></div>",
+      "css": ".ds-hoja { width:22rem; padding:8px 16px 16px; border-radius:1.75rem 1.75rem 0 0; background:var(--color-papel, #fff); color:var(--color-texto, #163a52); box-shadow:var(--shadow-hoja, 0 -12px 34px -8px rgb(22 58 82 / .28)); font-family:var(--font-sans, system-ui, -apple-system, 'SF Pro Text', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif); } .ds-asa { display:block; width:40px; height:6px; margin:0 auto 8px; border-radius:9999px; background:var(--color-regla, #d5e5ee); } .ds-hoja-cab { display:flex; justify-content:space-between; align-items:flex-start; padding-bottom:12px; } .ds-hoja-cab h2 { margin:0; padding-top:4px; font-size:1.25rem; line-height:1.25; font-weight:700; } .ds-cerrar { display:grid; place-items:center; width:36px; height:36px; border:0; border-radius:9999px; background:var(--color-suelo, #eaf5fb); color:var(--color-gris, #4b6478); cursor:pointer; } .ds-cerrar:focus-visible { outline: 3px solid var(--color-tinta, #1d5f84); outline-offset: 2px; } .ds-grupo { padding:0 14px; border-radius:1rem; background:var(--color-suelo, #eaf5fb); } .ds-fila { position:relative; display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--color-regla, #d5e5ee); cursor:pointer; } .ds-fila:last-child { border-bottom:0; } .ds-fila > span:first-child { flex:1; } .ds-fila b { display:block; font-size:.95rem; font-weight:600; } .ds-fila small { display:block; margin-top:4px; font-size:.78rem; color:var(--color-gris, #4b6478); } .ds-fila input { position:absolute; opacity:0; width:1px; height:1px; } .ds-sw { position:relative; flex:none; width:48px; height:28px; border-radius:9999px; background:var(--color-regla, #d5e5ee); transition:background-color .2s; } .ds-sw span { position:absolute; top:2px; left:2px; width:24px; height:24px; border-radius:9999px; background:#fff; box-shadow:var(--shadow-flota, 0 2px 6px rgb(22 58 82 / .10), 0 16px 34px -12px rgb(22 58 82 / .34)); transition:transform .2s; } .ds-fila input:checked + .ds-sw { background:var(--color-tinta, #1d5f84); } .ds-fila input:checked + .ds-sw span { transform:translateX(20px); } .ds-fila input:focus-visible + .ds-sw { box-shadow:0 0 0 4px rgb(42 58 156 / .25); }"
+    },
+    {
+      "name": "Barra de pestañas inferior",
+      "kind": "nav",
+      "refersTo": "barra-pestanas",
+      "description": "Cuatro pestañas; la activa en tinta con una píldora de tinte tras el ícono.",
+      "html": "<nav class=\"ds-tabs\"><button class=\"on\"><i><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 11l9-7 9 7M5 9.5V20h14V9.5M10 20v-6h4v6\"/></svg></i><span>Mi lugar</span></button><button><i><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v14M15 6v14\"/></svg></i><span>Mapa</span></button></nav>",
+      "css": ".ds-tabs { display:grid; grid-template-columns:repeat(2,1fr); width:20rem; height:72px; border-top:1px solid var(--color-regla, #d5e5ee); background:rgb(255 255 255 / .92); backdrop-filter:blur(12px); font-family:var(--font-sans, system-ui, -apple-system, 'SF Pro Text', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif); } .ds-tabs button { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; border:0; background:none; color:var(--color-gris, #4b6478); font:600 .72rem/1 var(--font-sans, system-ui, -apple-system, 'SF Pro Text', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif); cursor:pointer; } .ds-tabs i { display:grid; place-items:center; width:60px; height:32px; border-radius:9999px; transition:background-color .2s; } .ds-tabs button.on { color:var(--color-tinta, #1d5f84); } .ds-tabs button.on i { background:var(--color-tinta-suave, #dcf0fa); } .ds-tabs button:hover { color:var(--color-texto, #163a52); } .ds-tabs button:focus-visible { outline: 3px solid var(--color-tinta, #1d5f84); outline-offset: 2px; }"
+    },
+    {
+      "name": "Campo de búsqueda",
+      "kind": "input",
+      "refersTo": "campo",
+      "description": "Ficha papel de 48 px con lupa y botón GPS; anillo tinta al 15 % con foco.",
+      "html": "<form class=\"ds-buscar\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\"/><path d=\"M15.5 15.5L21 21\"/></svg><input placeholder=\"Busca tu recinto o calle\"><button type=\"button\" aria-label=\"Mi ubicación\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v4M12 18v4M2 12h4M18 12h4\"/></svg></button></form>",
+      "css": ".ds-buscar { display:flex; align-items:center; gap:8px; width:22rem; height:48px; padding:0 6px 0 16px; border-radius:1rem; background:var(--color-papel, #fff); color:var(--color-gris, #4b6478); box-shadow:var(--shadow-ficha, 0 1px 2px rgb(22 58 82 / .06), 0 14px 30px -16px rgb(22 58 82 / .32)); font-family:var(--font-sans, system-ui, -apple-system, 'SF Pro Text', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif); } .ds-buscar:focus-within { box-shadow:var(--shadow-ficha, 0 1px 2px rgb(22 58 82 / .06), 0 14px 30px -16px rgb(22 58 82 / .32)), 0 0 0 4px rgb(29 95 132 / .15); } .ds-buscar input { flex:1; min-width:0; height:100%; border:0; outline:0; background:transparent; color:var(--color-texto, #163a52); font:500 1rem var(--font-sans, system-ui, -apple-system, 'SF Pro Text', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif); } .ds-buscar input::placeholder { color:var(--color-gris, #4b6478); } .ds-buscar button { display:grid; place-items:center; width:36px; height:36px; border:0; border-radius:.75rem; background:var(--color-tinta-suave, #dcf0fa); color:var(--color-tinta, #1d5f84); cursor:pointer; } .ds-buscar button:active { transform:scale(.95); } .ds-buscar button:focus-visible { outline: 3px solid var(--color-tinta, #1d5f84); outline-offset: 2px; }"
+    },
+    {
+      "name": "Paso del asistente",
+      "kind": "custom",
+      "refersTo": "paso-asistente",
+      "description": "Un paso de «Reportar»: barra de progreso de 5 segmentos, pregunta en headline, ayuda y opciones en rejilla de 3; la elegida en tinta.",
+      "html": "<div class=\"ds-wiz\"><ol class=\"ds-wiz-barra\"><li class=\"hecho\"></li><li class=\"hecho\"></li><li></li><li></li><li></li></ol><section class=\"ds-paso\"><h2>¿Cuánta agua hay?</h2><p>Elige lo que ves en la calle.</p><div class=\"ds-ops\"><button>Hasta la vereda</button><button class=\"on\" aria-checked=\"true\">Sobre la vereda</button><button>No cruces</button></div></section></div>",
+      "css": ".ds-wiz { max-width:24rem; padding:16px; background:linear-gradient(180deg, var(--color-cielo-1, #bfe3f6), var(--color-cielo-2, #dcf0fa) 42%, var(--color-cielo-3, #f0f8fc)); font-family:var(--font-sans, system-ui, -apple-system, 'SF Pro Text', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif); color:var(--color-texto, #163a52); } .ds-wiz-barra { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin:0 0 16px; padding:0; list-style:none; } .ds-wiz-barra li { height:6px; border-radius:9999px; background:rgb(255 255 255 / .7); } .ds-wiz-barra li.hecho { background:var(--color-tinta, #1d5f84); } .ds-paso { padding:20px; border-radius:1.6rem; background:var(--color-vidrio, rgb(255 255 255 / .74)); outline:1px solid rgb(255 255 255 / .7); outline-offset:-1px; box-shadow:var(--shadow-ficha, 0 1px 2px rgb(22 58 82 / .06), 0 14px 30px -16px rgb(22 58 82 / .32)); animation:ds-paso .34s cubic-bezier(.16,1,.3,1); } @keyframes ds-paso { from { opacity:0; transform:translateX(28px); } } .ds-paso h2 { margin:0; font-size:1.75rem; line-height:1.25; font-weight:700; letter-spacing:-.025em; } .ds-paso p { margin:4px 0 0; font-size:.85rem; color:var(--color-gris, #4b6478); } .ds-ops { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:16px; } .ds-ops button { min-height:104px; padding:12px 6px; border:0; border-radius:1rem; background:rgb(255 255 255 / .8); box-shadow:inset 0 0 0 1px var(--color-regla, #d5e5ee); color:var(--color-texto, #163a52); font:600 .875rem/1.25 var(--font-sans, system-ui, -apple-system, 'SF Pro Text', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif); cursor:pointer; transition:transform .15s; } .ds-ops button:active { transform:scale(.97); } .ds-ops button.on { background:var(--color-tinta, #1d5f84); box-shadow:none; color:#fff; } .ds-ops button:focus-visible { outline:3px solid var(--color-tinta, #1d5f84); outline-offset:2px; } @media (prefers-reduced-motion: reduce) { .ds-paso { animation:none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "La app del teléfono, en mosaico, bajo un cielo despejado",
+    "overview": "Yaguachi Weather se ve y se toca como una app nativa del teléfono de quien la usa: un mosaico bento de fichas muy redondeadas, la letra del sistema (San Francisco en iPhone, Roboto en Android) y una sola tinta de azul petróleo para todo lo que se puede tocar. Desde este cambio aprobado, el mosaico flota sobre un degradado de cielo despejado (celeste arriba, casi blanco abajo) y las fichas son de vidrio claro: blanco translúcido con un filo blanco, de modo que el cielo se adivina detrás. De la referencia del clima solo se tomó la gama de color, no su diseño. La pieza más grande del mosaico sigue siendo el nivel de tu lugar, pintada en su color del semáforo, ahora como degradado del mismo tono y con una escena viva: agua que sube con el nivel, una nube que llueve según el pronóstico o sol cuando no llueve.\n\nLa densidad es de app, no de página: márgenes de 16 px, separación de 12 px entre fichas, objetivos táctiles de 48 px o más, barra de pestañas inferior y hojas que suben desde abajo con un asa. «Reportar» es un asistente de cinco pasos, uno por pantalla. El panel del analista comparte el mismo mundo (cielo, tinta, píldoras) con fichas de papel sólido y controles un poco más compactos para escritorio.\n\nEl mundo rechaza dos cosas confirmadas por el usuario: la app de alertas genérica de tarjetas apiladas y el aspecto de «saco de piladora» impreso y rudo de una ronda anterior. Tampoco copia escalas ni textos de otras apps: la escala de altura del agua (hasta la vereda, sobre la vereda, no cruces) es propia.",
+    "keyCharacteristics": [
+      "Fondo fijo en degradado de cielo (cielo-1 → cielo-2 → cielo-3); nada de grises fríos.",
+      "Mosaico bento de fichas de vidrio (1.6rem de radio, blanco al 74 % con filo blanco al 70 %) en la app; papel sólido en el panel y en las hojas.",
+      "La ficha del nivel es la más grande y la única en color de semáforo: degradado del mismo tono, escena animada y escala de 4 barras.",
+      "Letra del sistema del teléfono, en minúsculas normales; nada se descarga.",
+      "Una tinta de azul petróleo para acciones; su tinte celeste para acciones secundarias, chips y fondos de íconos.",
+      "Movimiento suave y con sentido (entrada en cascada, olas, nube, gotas, curva que se dibuja, pasos que se deslizan), todo apagado con `prefers-reduced-motion`."
+    ],
+    "rules": [
+      {
+        "name": "The Color Afirma Nivel Rule",
+        "body": "n1–n4 (y sus tintes claros) aparecen solo donde se afirma un nivel: ficha del nivel, placas de nivel, guía de niveles, cabecera de aviso, medidor del río y símbolos del mapa (ríos, recintos). Nunca como acento, estado de botón, gráfico de lluvia o decoración. La correspondencia de tono es fija (plan cantonal / COE); solo puede ajustarse el contraste del texto.",
+        "section": "colors"
+      },
+      {
+        "name": "The El Agua No Es Nivel Rule",
+        "body": "a1–a3 describen la altura del agua en una calle, no un nivel de alerta. Viven solo en el mapa y su leyenda; la elección de altura en el asistente usa vidrio, regla y tinta, nunca a1–a3 ni el semáforo.",
+        "section": "colors"
+      },
+      {
+        "name": "The Una Tinta Rule",
+        "body": "Toda acción es tinta o tinta-suave. No hay segundo color de acción: cielo, nube y sol son clima, no botones.",
+        "section": "colors"
+      },
+      {
+        "name": "The Cielo Es Clima Rule",
+        "body": "cielo, nube, sol y sol-claro solo dibujan tiempo atmosférico (lluvia, nube, sol) en la escena del nivel y en la curva de lluvia. No pintan superficies, texto ni controles.",
+        "section": "colors"
+      },
+      {
+        "name": "The Peso No Familia Rule",
+        "body": "La jerarquía se construye con peso y tamaño dentro de la letra del sistema. No se descargan ni se añaden fuentes.",
+        "section": "typography"
+      },
+      {
+        "name": "The Cifras Tabulares Rule",
+        "body": "Todo número que se compara (milímetros, metros, lecturas, contadores) lleva cifras tabulares.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sombra Suave Rule",
+        "body": "Las sombras son siempre difusas, teñidas de azul petróleo (texto) y con desplazamiento negativo de expansión; nunca sombras duras desplazadas ni bordes de color a un lado.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Filo De Vidrio Rule",
+        "body": "Toda ficha de vidrio lleva su filo blanco al 70 % de 1 px; el vidrio sin filo se pierde en el cielo.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** poner el nivel del lugar como la ficha más grande del mosaico, en su color del semáforo y con su nombre escrito (el color nunca va solo).",
+      "**Do** mantener el mismo juego de fichas en el mismo orden para todos los lugares: nivel, Qué hacer ahora, fichas de dato, 911, listas.",
+      "**Do** usar fichas de vidrio con filo blanco sobre el cielo en la app, y papel sólido en hojas, panel y controles del mapa.",
+      "**Do** teñir toda sombra de azul petróleo (rgb(22 58 82 / …)), nunca de gris o negro neutro.",
+      "**Do** usar tinta para la acción principal y tinta-suave para todas las secundarias; un solo color de acción por pantalla.",
+      "**Do** separar las filas de una lista con 1 px de regla dentro de la ficha, no con fichas anidadas.",
+      "**Do** dar a la escena del nivel solo datos reales: la altura del agua sigue al nivel y las gotas a la lluvia pronosticada.",
+      "**Do** escribir todo texto de interfaz a través de i18n (es por defecto, en disponible): `data-i18n`, `data-i18n-attr`, `data-i18n-html` o `t()`; ningún texto literal en HTML ni JS.",
+      "**Do** estilar solo con clases de Tailwind v4 y los tokens de `web/estilos/fuente.css`, compilando con el CLI standalone (`sh estilos.sh`, o `--watch`); escribir las clases completas en el JS para que el CLI las encuentre.",
+      "**Do** cerrar cada cambio de interfaz con `impeccable detect` en 0 hallazgos.",
+      "**Do** respetar `prefers-reduced-motion`: sin animaciones ni transiciones."
+    ],
+    "donts": [
+      "**Don't** usar n1–n4 ni sus tintes claros donde no se afirma un nivel (acentos, botones, gráficos de lluvia, decoración).",
+      "**Don't** usar a1–a3 como niveles ni el semáforo para la altura del agua.",
+      "**Don't** usar cielo, nube o sol fuera de la escena del nivel y la curva de lluvia, ni cielo para texto.",
+      "**Don't** pintar escenarios de planificación en color de semáforo pleno; van en magenta escenario y rotulados como escenario.",
+      "**Don't** añadir colores fuera de la paleta (`--color-*: initial`) ni grises o azules por defecto de Tailwind.",
+      "**Don't** copiar escalas, textos ni diseño de otras apps; de la referencia del clima solo se tomó la gama.",
+      "**Don't** descargar fuentes ni añadir una segunda familia.",
+      "**Don't** poner bordes de color a un lado de fichas o avisos, ni sombras duras desplazadas.",
+      "**Don't** escribir CSS a mano fuera de `fuente.css` ni usar Node/npm para compilar estilos.",
+      "**Don't** dar aspecto oficial: el aviso de que la app no es oficial queda visible en «Mi lugar»."
+    ]
+  }
+}

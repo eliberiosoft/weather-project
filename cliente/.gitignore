@@ -1,0 +1,4 @@
+# dependencias y salida del build (se generan con npm ci / npm run build)
+node_modules/
+dist/
+*.tsbuildinfo
