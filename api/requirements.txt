@@ -10,4 +10,4 @@ psycopg-pool==3.3.3
 redis==8.1.0
 
 # Web push (opcional en tiempo de ejecución): sin él el push queda deshabilitado y todo lo demás funciona.
-firebase-admin==7.7.0
+firebase-admin==7.8.0
